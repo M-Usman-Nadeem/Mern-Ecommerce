@@ -3,7 +3,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {add} from '../reducers'
 import { ToastContainer, toast } from 'react-toastify';
-
+import { Link } from 'react-router-dom';
 
 export default function ProductsList() {
     const products=useSelector(state=>state.rootReducer.products)
@@ -29,15 +29,15 @@ toast.success("Product has been added.", {
         <div className="card product-item">
             <i className="bi bi-heart-fill position-absolute liked" />
             <i className="bi bi-heart position-absolute like" />
-            <img
+          <Link to={`/Product/${index}`}>
+          <img
             src={image}
-            // onclick="goToProductDetails()"
             className="card-img-top"
             alt="..."
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="Click to See Product Details"
-            />
+            /></Link>
             <div className="card-body">
             <h6 className="card-subtitle mb-2 text-muted  fw-light">
           {category}

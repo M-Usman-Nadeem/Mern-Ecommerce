@@ -3,9 +3,13 @@ body{
   min-height: 100vh;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
  }    
- div{
-     /* border: 1px solid grey;
-     padding: 2px; */
+
+ .navbar{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+    right: 0;
  }
  .rating-stars{
    color:rgb(245, 197, 75);
@@ -39,6 +43,9 @@ body{
  }
  .footer-items a:hover{
      text-decoration: underline;
+ }
+ .carousel{
+    margin-top: 55px;
  }
  
  .breadcrumb{

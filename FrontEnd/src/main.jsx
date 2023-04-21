@@ -10,6 +10,8 @@ import { store } from './store'
 import { Provider } from 'react-redux'
 import CartPage from './pages/CartPage';
 import CheckOutPage from './pages/CheckOutPage';
+import Product from './components/product';
+import ProductDescription from './pages/productDescription';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +25,12 @@ const router = createBrowserRouter([
     path:'/Checkout',
     element:<CheckOutPage/>
   },
+  
+  {
+    path:'/Product/:id',  
+    element:<ProductDescription/>
+  },
+
 
 ]);
 
