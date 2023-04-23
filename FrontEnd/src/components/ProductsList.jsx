@@ -4,9 +4,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import {add} from '../reducers'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios'
 export default function ProductsList() {
+  
     const products=useSelector(state=>state.rootReducer.products)
+
     const dispatch=useDispatch()
     const addItem=(item)=>{
  dispatch(add({...item,quantity:1}))

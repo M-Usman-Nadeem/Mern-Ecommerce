@@ -1,11 +1,15 @@
 import { combineReducers, createSlice } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import db from './components/data'
-const initialState=db
+// import db from './components/data'
+const initialState=[]
 const products=createSlice({
     name:'products',
     initialState,
-reducers:{}
+reducers:{
+    initialData:(state,action)=>{
+        return action.payload
+    }
+}
 })
 const addToCart=createSlice({
     name:'cart',
@@ -42,3 +46,4 @@ export const rootReducer=combineReducers({
     cart:addToCart.reducer
 })
 export const {add,remove,changeQuantity}=addToCart.actions
+export const {initialData}=products.actions
