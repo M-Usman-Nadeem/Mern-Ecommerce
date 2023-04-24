@@ -20,22 +20,25 @@ const addToCart=createSlice({
                 return state
             }
           
-            return [...state,payload]
+            return payload
         },
         remove:(state,action)=>{
-const updatedArr= state.filter((item,index)=>index!=action.payload)
+// const updatedArr= state.filter((item,index)=>index!=action.payload)
 
 
-return [...updatedArr]
+// return [...updatedArr]
+return action.payload
         },
         changeQuantity:(state,{payload})=>{
 const data=state.map((item,index)=>{
-if(index!=payload.index)return item
+if(item._id!=payload._id)return item
 else{
+    console.log(payload)
    
-    return {...item,quantity:payload.quantity}
+    return payload
 
 }})
+// console.log('data',data)
 return data
 }
 }

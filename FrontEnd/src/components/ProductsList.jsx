@@ -3,6 +3,8 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {add} from '../reducers'
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 export default function ProductsList() {
@@ -10,19 +12,23 @@ export default function ProductsList() {
     const products=useSelector(state=>state.rootReducer.products)
 
     const dispatch=useDispatch()
-    const addItem=(item)=>{
- dispatch(add({...item,quantity:1}))
-
-toast.success("Product has been added.", {
-  position: toast.POSITION.TOP_CENTER,
-  autoClose: 2000,
-  theme:'dark'
+    const addItem=async (item)=>{
+      const  res= await axios.post('http://localhost:5000/api/addToCart',{...item,quantity:1})
+      const data= res.data
+      // console.log(data)
+       dispatch(add(data))
+      alert("Product has been added.")
+// toast.success("Product has been added.", {
+//   position: toast.POSITION.TOP_CENTER,
+//   autoClose: 2000,
+//   theme:'dark'
  
-})
+// })
     }
   return (
   <div className="container mb-5">
   <div id="products" className="row">
+    <ToastContainer/>
     {  
 
     products.map((item,index)=>{
